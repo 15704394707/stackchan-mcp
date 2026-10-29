@@ -27,3 +27,10 @@ uint32_t getFaceCommandRevision();
 // camera endpoint. The latest requested face is redrawn after the preview.
 bool showCameraPreview(const uint8_t* jpegData, size_t jpegLen,
                        uint32_t durationMs = 6000);
+
+// ── 底部中文字幕条（2026-10-29 新增）──────────────────────────────────────
+// 显示 UTF-8 中文。字幕出现时 GIF 缩到 1.0 倍贴顶（192x192），底部 48px 留给字幕。
+// durationMs = 0 表示常驻，直到 clearTextOverlay() 或表情命令。
+bool showTextOverlay(const char* utf8Text, uint32_t durationMs);
+void clearTextOverlay();
+bool isTextOverlayActive();
